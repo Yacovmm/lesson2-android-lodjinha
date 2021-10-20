@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.HomeFragment">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:nestedScrollingEnabled="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="130dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:elevation="0dp"
+            >
+
+            <!-- Header -->
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/coordinator_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="130dp"
+                app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_banner"
+                        android:layout_width="0dp"
+                        android:minHeight="130dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/banner_layout_rv"/>
+
+                    <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
+                        android:visibility="visible"
+                        android:id="@+id/indicator"
+                        android:layout_width="59dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        app:layout_constraintBottom_toBottomOf="@+id/rv_banner"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:spi_dotSelectedColor="@color/white"
+                        android:layout_marginBottom="10dp"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/categories_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Categorias"
+                android:textSize="@dimen/textsize_large"
+                app:layout_constraintTop_toBottomOf="@id/rv_banner"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginHorizontal="10dp"/>
+
+            <View
+                android:id="@+id/divider_categories"
+                style="@style/Divider"
+                app:layout_constraintTop_toBottomOf="@id/categories_tv"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="15dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/categories_layout_rv"
+                app:layout_constraintTop_toBottomOf="@id/divider_categories"/>
+
+            <View
+                android:id="@+id/divider_top_maisvendidos"
+                style="@style/Divider"
+                app:layout_constraintTop_toBottomOf="@id/rv_categories"/>
+
+            <TextView
+                android:id="@+id/mais_vendidos_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mais vendidos"
+                android:textSize="@dimen/textsize_large"
+                app:layout_constraintTop_toBottomOf="@id/divider_top_maisvendidos"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginHorizontal="10dp"/>
+
+            <View
+                android:id="@+id/divider_bottom_maisvendidos"
+                style="@style/Divider"
+                app:layout_constraintTop_toBottomOf="@id/mais_vendidos_tv"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mais_vendidos_rv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:nestedScrollingEnabled="true"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/divider_bottom_maisvendidos"
+                tools:listitem="@layout/maisvendidos_layout_rv" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

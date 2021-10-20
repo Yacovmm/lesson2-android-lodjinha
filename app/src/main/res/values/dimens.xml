@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textsize_title">24sp</dimen>
+
+    <dimen name="textsize_largexxl">24sp</dimen>
+    <dimen name="textsize_largexl">22sp</dimen>
+    <dimen name="textsize_large">18sp</dimen>
+    <dimen name="textsize_medium">16sp</dimen>
+    <dimen name="textsize_small">13sp</dimen>
+    <dimen name="textsize_xsmall">11sp</dimen>
+    <dimen name="textsize_xxsmall">10sp</dimen>
+
+</resources>
