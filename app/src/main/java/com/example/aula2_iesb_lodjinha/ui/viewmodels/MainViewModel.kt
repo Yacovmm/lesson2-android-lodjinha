@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.aula2_iesb_lodjinha.api.RetrofitInstance
 import com.example.aula2_iesb_lodjinha.models.GetBannerResponse
+import com.example.aula2_iesb_lodjinha.models.GetCategoriaResponse
 import com.example.aula2_iesb_lodjinha.repositories.LodjinhaRepository
 import kotlinx.coroutines.launch
 
@@ -25,6 +26,19 @@ class MainViewModel(
             }
         }
 
+    }
+
+    private val _categoriesLiveData = MutableLiveData<List<GetCategoriaResponse.Categoria>>()
+    val categoriesLiveData: LiveData<List<GetCategoriaResponse.Categoria>> get() = _categoriesLiveData
+
+    fun getCategories() = viewModelScope.launch {
+        val response = repository.getCategoria()
+
+        if (response.isSuccessful) {
+            response.body()?.let {
+                _categoriesLiveData.postValue(it.data)
+            }
+        }
     }
 
 

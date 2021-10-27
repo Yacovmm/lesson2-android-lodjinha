@@ -16,9 +16,19 @@ class BannerAdapter :
         inner class BannerViewHolder(
             private val binding: BannerLayoutRvBinding
         ): RecyclerView.ViewHolder(binding.root) {
+
             fun bind(banner: GetBannerResponse.Banner) {
-                binding.image.load(banner.urlImagem)
+                binding.image.apply {
+                    load(banner.urlImagem)
+
+                    setOnClickListener {
+                        onItemClickListener?.invoke(banner)
+                    }
+
+                }
+
             }
+
         }
 
     companion object {
@@ -60,5 +70,10 @@ class BannerAdapter :
         return differ.currentList.size
     }
 
+    private var onItemClickListener: ( (GetBannerResponse.Banner) -> Unit )? = null
+
+    fun setOnItemClickListener(clickListener: (GetBannerResponse.Banner) -> Unit ) {
+        onItemClickListener = clickListener
+    }
 
 }

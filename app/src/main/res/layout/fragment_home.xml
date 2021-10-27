@@ -77,9 +77,9 @@
                 android:layout_height="wrap_content"
                 android:text="Categorias"
                 android:textSize="@dimen/textsize_large"
-                app:layout_constraintTop_toBottomOf="@id/rv_banner"
                 android:textStyle="bold"
                 android:textColor="@color/black"
+                app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginHorizontal="10dp"/>
 
             <View
@@ -93,9 +93,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingVertical="15dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 tools:listitem="@layout/categories_layout_rv"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/divider_categories"/>
+
+
 
             <View
                 android:id="@+id/divider_top_maisvendidos"
@@ -116,7 +118,8 @@
             <View
                 android:id="@+id/divider_bottom_maisvendidos"
                 style="@style/Divider"
-                app:layout_constraintTop_toBottomOf="@id/mais_vendidos_tv"/>
+                app:layout_constraintTop_toBottomOf="@id/mais_vendidos_tv"
+                tools:ignore="MissingConstraints" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/mais_vendidos_rv"
@@ -126,7 +129,9 @@
                 android:nestedScrollingEnabled="true"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/divider_bottom_maisvendidos"
-                tools:listitem="@layout/maisvendidos_layout_rv" />
+                 />
+
+<!--            tools:listitem="@layout/maisvendidos_layout_rv"-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

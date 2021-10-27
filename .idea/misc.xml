@@ -6,7 +6,8 @@
         <entry key="app/src/main/res/font/ola.xml" value="0.27314814814814814" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/banner_layout_rv.xml" value="0.125" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22554347826086957" />
+        <entry key="app/src/main/res/layout/categories_layout_rv.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.165" />
         <entry key="app/src/main/res/layout/nav_view_header.xml" value="0.25" />
         <entry key="app/src/main/res/menu/navview_menu.xml" value="0.25" />
       </map>
