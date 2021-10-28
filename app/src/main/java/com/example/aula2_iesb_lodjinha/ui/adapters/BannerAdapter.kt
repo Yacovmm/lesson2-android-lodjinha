@@ -19,7 +19,9 @@ class BannerAdapter :
 
             fun bind(banner: GetBannerResponse.Banner) {
                 binding.image.apply {
-                    load(banner.urlImagem)
+                    load(banner.urlImagem) {
+
+                    }
 
                     setOnClickListener {
                         onItemClickListener?.invoke(banner)

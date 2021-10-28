@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.aula2_iesb_lodjinha">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.Aula2iesblodjinha">
+        android:theme="@style/Theme.Aula2iesblodjinha"
+        tools:targetApi="m">
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

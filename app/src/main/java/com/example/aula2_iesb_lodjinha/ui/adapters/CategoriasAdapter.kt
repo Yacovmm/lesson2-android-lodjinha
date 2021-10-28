@@ -27,6 +27,11 @@ class CategoriasAdapter :
                     transformations(CircleCropTransformation())
                     placeholder(R.drawable.ic_info)
                     error(R.drawable.ic_info)
+
+                    listener(onError = {request, throwable ->
+                        println(throwable)
+                    })
+
                 }
 
                 setOnClickListener {
@@ -34,6 +39,8 @@ class CategoriasAdapter :
                 }
 
             }
+
+            binding.categorieTitleText.text = categoria.descricao
 
         }
 

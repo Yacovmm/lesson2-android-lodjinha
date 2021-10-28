@@ -9,5 +9,20 @@
         android:id="@+id/mainFragment"
         android:name="com.example.aula2_iesb_lodjinha.ui.fragments.HomeFragment"
         android:label="O lodjinha"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_mainFragment_to_productsListFragment"
+            app:destination="@id/productsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productsListFragment"
+        android:name="com.example.aula2_iesb_lodjinha.ui.fragments.ProductsListFragment"
+        tools:layout="@layout/fragment_products_list" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="categoryId"
+            app:argType="integer" />
+    </fragment>
 </navigation>

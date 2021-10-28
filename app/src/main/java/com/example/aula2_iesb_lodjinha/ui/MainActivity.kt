@@ -8,7 +8,13 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.aula2_iesb_lodjinha.R
 import com.example.aula2_iesb_lodjinha.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+
+interface NavigationDelegate {
+    fun setToolbarTitle(title: String)
+}
+
+
+class MainActivity : AppCompatActivity(), NavigationDelegate {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -22,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         setupNavigationView()
 
         setupNavigation()
+
+        binding.topAppBar.title = "dadasdasddadas"
 
     }
 
@@ -57,5 +65,9 @@ class MainActivity : AppCompatActivity() {
     private fun setupNavigationView() {
         binding.topAppBar.setupWithNavController(navigator, binding.drawerLayout)
         binding.navigationView.setupWithNavController(navigator)
+    }
+
+    override fun setToolbarTitle(title: String) {
+        binding.topAppBar.title = title
     }
 }

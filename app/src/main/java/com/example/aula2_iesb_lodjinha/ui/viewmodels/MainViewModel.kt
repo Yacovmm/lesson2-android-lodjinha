@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.aula2_iesb_lodjinha.api.RetrofitInstance
 import com.example.aula2_iesb_lodjinha.models.GetBannerResponse
 import com.example.aula2_iesb_lodjinha.models.GetCategoriaResponse
+import com.example.aula2_iesb_lodjinha.models.GetMaisVendidosResponse
 import com.example.aula2_iesb_lodjinha.repositories.LodjinhaRepository
 import kotlinx.coroutines.launch
 
@@ -39,6 +40,20 @@ class MainViewModel(
                 _categoriesLiveData.postValue(it.data)
             }
         }
+    }
+
+    private val _maisVendidosLiveData = MutableLiveData<List<GetMaisVendidosResponse.ProdutoResponse>>()
+    val maisVendidosLiveData: LiveData<List<GetMaisVendidosResponse.ProdutoResponse>> get() = _maisVendidosLiveData
+
+    fun getMaisVendidos() = viewModelScope.launch {
+        val response = repository.getMaisVendidos()
+
+        if (response.isSuccessful) {
+            response.body()?.let {
+                _maisVendidosLiveData.postValue(it.data)
+            }
+        }
+
     }
 
 

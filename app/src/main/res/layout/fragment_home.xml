@@ -127,11 +127,11 @@
                 android:layout_height="0dp"
                 android:orientation="vertical"
                 android:nestedScrollingEnabled="true"
+                tools:listitem="@layout/maisvendidos_layout_rv"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/divider_bottom_maisvendidos"
                  />
 
-<!--            tools:listitem="@layout/maisvendidos_layout_rv"-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

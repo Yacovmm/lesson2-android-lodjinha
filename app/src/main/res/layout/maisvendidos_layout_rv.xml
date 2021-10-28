@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:foreground="?attr/selectableItemBackground">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/product_iv"
+        android:transitionName="product_iv"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/descricao_produto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_home" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/descricao_produto"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginStart="10dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textsize_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/product_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Nome do produto com descricao grande demais" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/de_price_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="De: 9999,00"
+        android:textSize="@dimen/textsize_small"
+        app:layout_constraintTop_toBottomOf="@id/descricao_produto"
+        app:layout_constraintStart_toStartOf="@id/descricao_produto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="15dp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/por_price_product"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Por: 9999,00"
+        android:textColor="@color/tomato"
+        android:textStyle="bold"
+        android:textSize="@dimen/textsize_medium"
+        app:layout_constraintTop_toBottomOf="@id/descricao_produto"
+        app:layout_constraintEnd_toEndOf="@id/descricao_produto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="15dp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/arrow_forward"
+        android:src="@drawable/ic_round_arrow_forward"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <View
+        android:id="@+id/divider"
+        style="@style/Divider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
