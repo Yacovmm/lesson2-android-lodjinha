@@ -29,8 +29,6 @@ class MainActivity : AppCompatActivity(), NavigationDelegate {
 
         setupNavigation()
 
-        binding.topAppBar.title = "dadasdasddadas"
-
     }
 
     private fun setupNavigation() {

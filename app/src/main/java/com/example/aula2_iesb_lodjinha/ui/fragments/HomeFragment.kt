@@ -16,6 +16,7 @@ import com.example.aula2_iesb_lodjinha.ui.adapters.CategoriasAdapter
 import com.example.aula2_iesb_lodjinha.ui.adapters.ProductsAdapter
 import com.example.aula2_iesb_lodjinha.ui.viewmodels.MainViewModel
 import com.example.aula2_iesb_lodjinha.ui.viewmodels.MainViewModelProvideFactory
+import com.example.aula2_iesb_lodjinha.utils.toggleVisibilty
 
 
 class HomeFragment : Fragment() {
@@ -53,11 +54,11 @@ class HomeFragment : Fragment() {
 
         setupObservers()
 
-        viewModel.getBanner()
+        viewModel.getMainHomeData()
 
-        viewModel.getCategories()
-
-        viewModel.getMaisVendidos()
+//        viewModel.getCategories()
+//
+//        viewModel.getMaisVendidos()
 
     }
 
@@ -83,18 +84,33 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        viewModel.bannerLiveData.observe(viewLifecycleOwner) { list ->
-            bannerAdapter.differ.submitList(list)
-        }
+        viewModel.homeDataLiveData.observe(viewLifecycleOwner) { viewState ->
+            when {
+                viewState.loading -> {
+                    binding.mainLayout.toggleVisibilty(false)
+                    binding.progress.toggleVisibilty(true)
+                }
+                viewState.error -> {
+                    // TODO Criar placeholder caso de erro
+                }
+                viewState.data != null -> {
+                    binding.progress.toggleVisibilty(false)
+                    binding.mainLayout.toggleVisibilty(true)
 
-        viewModel.categoriesLiveData.observe(viewLifecycleOwner) { list ->
-            categoriasAdapter.differ.submitList(list)
-        }
+                    if (viewState.data?.bannerData.isNullOrEmpty().not()) {
+                        bannerAdapter.differ.submitList(viewState.data?.bannerData)
+                    }
 
-        viewModel.maisVendidosLiveData.observe(viewLifecycleOwner) { list ->
-            maisVendidosAdapter.differ.submitList(list)
-        }
+                    if (viewState.data?.categoriesData.isNullOrEmpty().not()) {
+                        categoriasAdapter.differ.submitList(viewState.data?.categoriesData)
+                    }
 
+                    if (viewState.data?.maisVendidosData.isNullOrEmpty().not()) {
+                        maisVendidosAdapter.differ.submitList(viewState.data?.maisVendidosData)
+                    }
+                }
+            }
+        }
     }
 
     // TODO SETUP OBSERVERS AND POPULATE RECYCLERVIEW
