@@ -14,6 +14,8 @@ class LodjinhaRepository(
     private val service: LodjinhaService
 ) {
 
+    // TODO: Substituir o Response do retrofit pelo ResponseWrapper do projeto.
+
     suspend fun getBanner(): Response<GetBannerResponse> {
         return SafeApiCall.safeNetworkRequest {
             service.getBanner()
