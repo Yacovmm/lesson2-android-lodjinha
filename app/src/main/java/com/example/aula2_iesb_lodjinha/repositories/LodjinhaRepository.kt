@@ -6,6 +6,8 @@ import com.example.aula2_iesb_lodjinha.api.SafeApiCall
 import com.example.aula2_iesb_lodjinha.models.GetBannerResponse
 import com.example.aula2_iesb_lodjinha.models.GetCategoriaResponse
 import com.example.aula2_iesb_lodjinha.models.GetMaisVendidosResponse
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import retrofit2.Response
 
 class LodjinhaRepository(

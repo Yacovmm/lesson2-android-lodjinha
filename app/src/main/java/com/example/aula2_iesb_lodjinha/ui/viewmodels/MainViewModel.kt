@@ -11,6 +11,7 @@ import com.example.aula2_iesb_lodjinha.models.GetMaisVendidosResponse
 import com.example.aula2_iesb_lodjinha.repositories.LodjinhaRepository
 import com.example.aula2_iesb_lodjinha.ui.viewstates.HomeData
 import com.example.aula2_iesb_lodjinha.ui.viewstates.HomeViewState
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -46,7 +47,7 @@ class MainViewModel(
         }
         // Before 1296 ms
         // Before 892 ms
-        println("Tempo do requests é? $time1 ms")
+//        println("Tempo do requests é? $time1 ms")
     }
 
     private fun handleHomeResponse(
